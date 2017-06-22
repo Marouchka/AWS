@@ -1,0 +1,11 @@
+
+/// TO DO ///
+- Add part list
+- Add wiring diagram
+- Add soldering board diagram
+
+
+/// FUTURE WORK ///
+- Encapsulate in a class
+- Add the option to have many sensors for one pump
+- Add parallelization for many pumps and many sensors linked to the same Arduino
