@@ -1,13 +1,17 @@
 int sensorPin = 5; 
-// const byte sensorPin = A2;
+// const byte sensorPin = A0;
 // int pumpPin = 2;
 const byte pumpPin = A1;
-bool flagPump = false;
-int threshold = 300;
+bool flagPump = true;
+int thresholdR = 750; // threshold calibration for resistive sensor
+int thresholdC = 750; // threshold calibration for capacitive sensor
+int threshold; // threshold selected
+const char charThreshold = 'R'; // to select resistive sensor
+// const char charThreshold = 'C'; // to select resistive sensor
 
-const int shortDelay = 2000; // ms
-const unsigned long delay12hrs = 4.32e+7; // ms
-const unsigned long longDelay = 10000; // ms
+const int shortDelay = 2000; // ms, between sensing when pump is on
+const unsigned long delay12hrs = 4.32e+7; // ms, 12 hrs in milliseconds
+const unsigned long longDelay = 5000; // ms, between sensing when pump is off
 // const unsigned long longDelay = delay12hrs; // ms
 
 
@@ -17,6 +21,11 @@ void setup()
   pinMode(A0, INPUT);
   pinMode(pumpPin, OUTPUT);
   Serial.begin(9600);
+
+  if(charThreshold == 'R') threshold = thresholdR;
+  if(charThreshold == 'C') threshold = thresholdC;
+  else threshold = 100;
+  
 }
 
 void loop() 
@@ -24,7 +33,7 @@ void loop()
   int maxSensor = 0;
   int sensorIn;
   
-  for(int i = 0; i < 5; i++)
+  for(int i = 0; i < 2; i++)
   {
     digitalWrite(sensorPin, HIGH);
     delay(500);
