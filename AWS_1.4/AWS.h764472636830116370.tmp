@@ -1,0 +1,29 @@
+// Automatic Watering System (AWS)
+// Object-oriented programming to eventually support multiple sensors/pump system
+
+class AWS{
+	// Overarching "world" class containing the sensor and pump objects
+	// Also eventually possible to connect to ThingSpeak via a Wifi shield
+
+public: 
+  sensor * sensor1;
+  sensor * pump1;
+private: 
+
+};
+
+class sensor{
+
+public: 
+
+private:
+  
+  };
+
+class pump{
+
+public:
+
+private:
+  
+  };
